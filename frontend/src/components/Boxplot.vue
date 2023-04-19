@@ -52,6 +52,5 @@ export default {
 .boxplot {
     width: 100%;
     min-width: 400px;
-
 }
 </style>

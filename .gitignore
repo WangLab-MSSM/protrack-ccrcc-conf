@@ -2,3 +2,4 @@ data/*
 .DS_Store
 protrack-ccrcc-confirmatory/dist
 protrack-ccrcc-confirmatory/node_modules
+frontend/dist.tar.gz

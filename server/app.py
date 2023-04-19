@@ -1,24 +1,20 @@
-from flask import Flask, jsonify, safe_join, send_from_directory, request
-from flask_cors import CORS, cross_origin
+from flask import Flask, send_from_directory, jsonify
 
-
-STATIC_DIR = '../dist/'
-
-
-app = Flask(__name__,
-            static_folder=STATIC_DIR,
-            )
+app = Flask(__name__, static_folder='dist', template_folder='dist')
 
 @app.route('/')
-def index():
-    return app.send_static_file("index.html")
+def serve():
+    return send_from_directory(app.template_folder, 'index.html')
 
 
 @app.route('/sanity')
-def sanity():
-    return jsonify({'hi': 'there'})
+def sanity_check():
+    return jsonify({"hi": "there"})
 
 
-@app.route('/assets/<path:path>')
-def send_assets(path):
-    return send_from_directory(safe_join(STATIC_DIR), path)
+@app.route('/<path:path>')
+def serve_static(path):
+    return send_from_directory(app.static_folder, path)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')

@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.25.0",
     "calculate-correlation": "^1.2.3",
+    "caniuse-lite": "^1.0.30001480",
     "core-js": "^3.6.5",
     "firebase": "^8.6.2",
     "jstat": "^1.9.5",
